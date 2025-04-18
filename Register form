@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ro'yxatdan o'tish formasi</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: sans-serif;
+    }
+
+    .forma {
+      background-color: white;
+      padding: 20px;
+      width: 300px;
+      margin: 50px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+
+    .forma h2 {
+      text-align: center;
+      color: navy;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      background-color: navy;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="forma" action="/register" method="POST">
+    <h2>Register</h2>
+
+    <label for="name">Firstname:</label>
+    <input type="text" id="name" name="name" placeholder="Your firstname " required>
+
+    <label for="lastname">Lastname:</label>
+    <input type="text" lastname="lastname" id="lastname" placeholder="Your lastname " required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <label for="bio">Bio:</label>
+    <textarea id="bio" name="bio" rows="4" placeholder="About you..."></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
