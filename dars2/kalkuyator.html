@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iPhone Style Calculator</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background-color: #2c2c2e;
+      border-radius: 20px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .screen {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 40px;
+      width: 100%;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      height: 60px;
+      border-radius: 50%;
+      font-size: 20px;
+      border: none;
+      color: white;
+      background-color: #3a3a3c;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .pink { color: #ff2d55; }
+    .green { color: #30d158; }
+    .teal { color: #64d2ff; }
+    .wide {
+      grid-column: span 2;
+      border-radius: 30px;
+    }
+
+    .equal {
+      background-color: #0a84ff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" id="result" class="screen" disabled />
+  <div class="buttons">
+    <button onclick="clearResult()">C</button>
+    <button onclick="deleteLast()">⌫</button>
+    <button onclick="append('(')">(</button>
+    <button onclick="append(')')">)</button>
+
+    <button onclick="append('7')" class="pink">7</button>
+    <button onclick="append('8')" class="pink">8</button>
+    <button onclick="append('9')" class="pink">9</button>
+    <button onclick="append('/')" class="green">÷</button>
+
+    <button onclick="append('4')" class="pink">4</button>
+    <button onclick="append('5')" class="pink">5</button>
+    <button onclick="append('6')" class="pink">6</button>
+    <button onclick="append('*')" class="green">×</button>
+
+    <button onclick="append('1')" class="pink">1</button>
+    <button onclick="append('2')" class="pink">2</button>
+    <button onclick="append('3')" class="pink">3</button>
+    <button onclick="append('+')" class="green">+</button>
+
+    <button onclick="append('0')" class="pink">0</button>
+    <button onclick="append('.')" class="pink">.</button>
+    <button onclick="calculate()" class="equal">=</button>
+    <button onclick="append('-')" class="green">−</button>
+  </div>
+</div>
+
+<script>
+  function append(value) {
+    document.getElementById("result").value += value;
+  }
+
+  function calculate() {
+    try {
+      document.getElementById("result").value = eval(document.getElementById("result").value);
+    } catch {
+      document.getElementById("result").value = "Xato!";
+    }
+  }
+
+  function clearResult() {
+    document.getElementById("result").value = "";
+  }
+
+  function deleteLast() {
+    let current = document.getElementById("result").value;
+    document.getElementById("result").value = current.slice(0, -1);
+  }
+</script>
+
+</body>
+</html>
